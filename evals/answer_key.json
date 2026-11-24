@@ -1,0 +1,31 @@
+{
+  "prd_id": "seed_01",
+  "prd_version": "v1",
+  "seeded_flaws": [
+    {
+      "criterion": "metrics",
+      "finding_type": "no_baseline",
+      "expected_severity": "high",
+      "description": "Goal says 'improve user satisfaction' but has no baseline, target, or timeframe."
+    },
+    {
+      "criterion": "requirements",
+      "finding_type": "untestable_ac",
+      "expected_severity": "medium",
+      "description": "Requirement 'Ensure the app is fast when switching themes' has no observable threshold (e.g., < 2s)."
+    },
+    {
+      "criterion": "scope",
+      "finding_type": "unbounded_scope",
+      "expected_severity": "medium",
+      "description": "Scope lists what is in..."
+    },
+    {
+      "criterion": "clarity",
+      "finding_type": "contradiction",
+      "expected_severity": "medium",
+      "severity_key": "scope ↔ requirements",
+      "description": "Contradiction between Scope and Requirements."
+    }
+  ]
+}
