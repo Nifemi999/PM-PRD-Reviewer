@@ -10,22 +10,34 @@
     },
     {
       "criterion": "requirements",
+      "finding_type": "missing_priority",
+      "expected_severity": "high",
+      "description": "None of the requirements have a priority marker (P0, P1, etc.)."
+    },
+    {
+      "criterion": "requirements",
+      "finding_type": "missing_ac",
+      "expected_severity": "high",
+      "description": "The requirement 'Add a toggle in Settings' has no acceptance criteria attached."
+    },
+    {
+      "criterion": "requirements",
       "finding_type": "untestable_ac",
       "expected_severity": "medium",
-      "description": "Requirement 'Ensure the app is fast when switching themes' has no observable threshold (e.g., < 2s)."
+      "description": "The requirement 'Ensure the app is fast when switching themes' is weak (no observable threshold for 'fast')."
     },
     {
       "criterion": "scope",
       "finding_type": "unbounded_scope",
       "expected_severity": "medium",
-      "description": "Scope lists what is in..."
+      "description": "Scope lists what is in, but the only exclusions are in the non-goals. No explicit boundary of the feature."
     },
     {
       "criterion": "clarity",
       "finding_type": "contradiction",
       "expected_severity": "medium",
       "severity_key": "scope ↔ requirements",
-      "description": "Contradiction between Scope and Requirements."
+      "description": "Contradiction between Scope ('changes to dark colors' - implies multiple/arbitrary colors) and Requirements ('a dark mode theme' - implies a standardized, singular palette)."
     }
   ]
 }
