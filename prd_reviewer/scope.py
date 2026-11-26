@@ -70,7 +70,7 @@ def check_scope(prd_text: str) -> List[Finding]:
     
     try:
         # We use Gemini 2.5 Flash for speed and cost
-        response = client.models.generate_content(
+        response = client.chat.completions.create(
             model='qwen-turbo-2.5b',
           messages=[
         {"role": "system", "content": "You are a senior Product Manager. Return only JSON."},
