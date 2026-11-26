@@ -1,10 +1,10 @@
 import os
 import re
 from typing import List
-from google import genai
+from openai import OpenAI  
 from prd_reviewer.schema import Finding, Evidence
 from prd_reviewer.metrics import extract_section
-from dotenv import load_dotenv  # <-- ADD THIS
+from dotenv import load_dotenv  
 
 load_dotenv()  # <-- ADD THIS
 
