@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 load_dotenv()  # <-- ADD THIS
 
 client = OpenAI(
-    api_key=os.environ.get("DASHSCOPE_API_KEY"),
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+    api_key=os.environ.get("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1",
 )
 
 def check_scope(prd_text: str) -> List[Finding]:
