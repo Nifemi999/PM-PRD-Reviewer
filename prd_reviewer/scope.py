@@ -8,6 +8,11 @@ from dotenv import load_dotenv  # <-- ADD THIS
 
 load_dotenv()  # <-- ADD THIS
 
+client = OpenAI(
+    api_key=os.environ.get("DASHSCOPE_API_KEY"),
+    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+)
+
 def check_scope(prd_text: str) -> List[Finding]:
     # ... the rest of the code
     findings = []
@@ -63,12 +68,16 @@ def check_scope(prd_text: str) -> List[Finding]:
     try:
         # We use Gemini 2.5 Flash for speed and cost
         response = client.models.generate_content(
-            model='gemini-3.8-flash',
-            contents=prompt,
+            model='qwen-turbo-2.5b',
+          messages=[
+        {"role": "system", "content": "You are a senior Product Manager. Return only JSON."},
+        {"role": "user", "content": prompt}
+    ],
+    temperature=0,
         )
         
         # Extract JSON from the response
-        raw_text = response.text.strip()
+        raw_text = response.choices[0].message.content.strip()
         # Sometimes the model wraps it in ```json ... ```
         if raw_text.startswith("```json"):
             raw_text = raw_text[7:-3].strip()
