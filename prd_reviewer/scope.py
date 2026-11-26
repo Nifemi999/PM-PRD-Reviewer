@@ -63,7 +63,7 @@ def check_scope(prd_text: str) -> List[Finding]:
     try:
         # We use Gemini 2.5 Flash for speed and cost
         response = client.models.generate_content(
-            model='gemini-2.5-flash',
+            model='gemini-3.8-flash',
             contents=prompt,
         )
         
