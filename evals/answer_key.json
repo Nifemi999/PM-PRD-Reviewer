@@ -4,21 +4,9 @@
   "seeded_flaws": [
     {
       "criterion": "metrics",
-      "finding_type": "no_number",
-      "expected_severity": "high",
-      "description": "The goals section has no quantitative target."
-    },
-    {
-      "criterion": "metrics",
-      "finding_type": "no_timeframe",
-      "expected_severity": "high",
-      "description": "The goals section has no timeframe or deadline."
-    },
-    {
-      "criterion": "metrics",
       "finding_type": "no_baseline",
       "expected_severity": "high",
-      "description": "The goals section does not state the current baseline."
+      "description": "Goal says 'improve user satisfaction' but has no baseline, target, or timeframe."
     },
     {
       "criterion": "requirements",
