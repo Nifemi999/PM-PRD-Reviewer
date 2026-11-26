@@ -3,9 +3,13 @@ import re
 from typing import List
 from google import genai
 from prd_reviewer.schema import Finding, Evidence
-from prd_reviewer.metrics import extract_section  # Reusing the parser we built
+from prd_reviewer.metrics import extract_section
+from dotenv import load_dotenv  # <-- ADD THIS
+
+load_dotenv()  # <-- ADD THIS
 
 def check_scope(prd_text: str) -> List[Finding]:
+    # ... the rest of the code
     findings = []
 
     # --- PART 1: CODE CHECKS ---
