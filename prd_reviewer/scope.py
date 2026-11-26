@@ -48,8 +48,11 @@ def check_scope(prd_text: str) -> List[Finding]:
     # --- PART 2: MODEL CHECK (Vacuous Non-Goals) ---
     # This uses the declared rubric pattern: the model classifies, code assigns severity.
     
-    client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-    
+    client = OpenAI(
+    api_key=os.environ.get("DASHSCOPE_API_KEY"),
+    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+)
+
     prompt = f"""
     You are a senior Product Manager. Review the following Non-Goals section from a PRD.
     Are these non-goals meaningful (do they actually exclude real features/work), or are they vacuous (e.g., "we won't build bad things", "we won't crash")?
