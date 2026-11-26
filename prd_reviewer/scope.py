@@ -49,8 +49,8 @@ def check_scope(prd_text: str) -> List[Finding]:
     # This uses the declared rubric pattern: the model classifies, code assigns severity.
     
     client = OpenAI(
-    api_key=os.environ.get("DASHSCOPE_API_KEY"),
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+    api_key=os.environ.get("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1",
 )
 
     prompt = f"""
@@ -69,14 +69,13 @@ def check_scope(prd_text: str) -> List[Finding]:
     """
     
     try:
-        # We use Gemini 2.5 Flash for speed and cost
         response = client.chat.completions.create(
-            model='qwen-turbo-2.5b',
-          messages=[
-        {"role": "system", "content": "You are a senior Product Manager. Return only JSON."},
-        {"role": "user", "content": prompt}
-    ],
-    temperature=0,
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": "You are a senior Product Manager. Return only JSON."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0,
         )
         
         # Extract JSON from the response
