@@ -70,7 +70,7 @@ def check_scope(prd_text: str) -> List[Finding]:
     
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=[
                 {"role": "system", "content": "You are a senior Product Manager. Return only JSON."},
                 {"role": "user", "content": prompt}
